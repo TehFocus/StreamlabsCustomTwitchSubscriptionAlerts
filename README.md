@@ -21,13 +21,13 @@ A modern Twitch alert box for Streamlabs with animated gradients, shape options,
 
 <p align="left">
       <span>Default Color Scheme (customFields.json):</span>
-      <br><br><img src="https://i.imgur.com/zwaw3QE.png" alt="Demopicture2" width="40%">
+      <br><br><img src="https://i.imgur.com/zwaw3QE.png" alt="Demopicture2" width="65%">
       <br><br><span>BlueWhite Color Scheme (customFieldsBlueIce.json):</span>
-      <br><br><img src="https://i.imgur.com/3GBOyrA.png" alt="Demopicture2" width="40%">
+      <br><br><img src="https://i.imgur.com/3GBOyrA.png" alt="Demopicture2" width="65%">
       <br><br><span>Orange Color Scheme (customFieldsOrange.json):</span>
-      <br><br><img src="https://i.imgur.com/I1gKLUp.png" alt="Demopicture2" width="40%">
+      <br><br><img src="https://i.imgur.com/I1gKLUp.png" alt="Demopicture2" width="65%">
       <br><br><span>Green Color Scheme (customFieldsGreen.json):</span>
-      <br><br><img src="https://i.imgur.com/vERk1v9.png" alt="Demopicture2" width="40%">
+      <br><br><img src="https://i.imgur.com/vERk1v9.png" alt="Demopicture2" width="65%">
 </p>
 
 
