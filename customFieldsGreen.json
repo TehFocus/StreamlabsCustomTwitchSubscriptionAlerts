@@ -1,0 +1,503 @@
+{
+  "shapePadding": {
+    "label": "Shape Inner Padding (px)",
+    "type": "slider",
+    "value": 20,
+    "max": 120,
+    "min": 8,
+    "steps": 2,
+    "group": "Shape & Geometry"
+  },
+  "containerWidth": {
+    "label": "Container Width (px)",
+    "type": "slider",
+    "value": 700,
+    "max": 1600,
+    "min": 300,
+    "steps": 25,
+    "group": "Container Size"
+  },
+  "containerHeight": {
+    "label": "Container Height (px)",
+    "type": "slider",
+    "value": 180,
+    "max": 400,
+    "min": 80,
+    "steps": 10,
+    "group": "Container Size"
+  },
+  "containerBorderRadius": {
+    "label": "Border Radius (px)",
+    "type": "slider",
+    "value": 80,
+    "max": 200,
+    "min": 0,
+    "steps": 2,
+    "group": "Container Size"
+  },
+  "containerOutlineWidth": {
+    "label": "Outline/Border Width (px)",
+    "type": "slider",
+    "value": 4,
+    "max": 30,
+    "min": 1,
+    "steps": 1,
+    "group": "Container Size"
+  },
+  "containerGradient1": {
+    "label": "Gradient Color 1 (Top-Left)",
+    "type": "colorpicker",
+    "value": "#2E8426",
+    "group": "Container Colors"
+  },
+  "containerGradient2": {
+    "label": "Gradient Color 2",
+    "type": "colorpicker",
+    "value": "#DCC122",
+    "group": "Container Colors"
+  },
+  "containerGradient3": {
+    "label": "Gradient Color 3",
+    "type": "colorpicker",
+    "value": "#30A139",
+    "group": "Container Colors"
+  },
+  "containerGradient4": {
+    "label": "Gradient Color 4 (Bottom-Right)",
+    "type": "colorpicker",
+    "value": "#000000",
+    "group": "Container Colors"
+  },
+  "gradientAngle": {
+    "label": "Gradient Angle (degrees)",
+    "type": "slider",
+    "value": 90,
+    "max": 360,
+    "min": 0,
+    "steps": 15,
+    "group": "Container Colors"
+  },
+  "containerOpacity": {
+    "label": "Container Opacity",
+    "type": "slider",
+    "value": 0.45,
+    "max": 1,
+    "min": 0.1,
+    "steps": 0.05,
+    "group": "Container Colors"
+  },
+  "backgroundBlur": {
+    "label": "Background Blur (px)",
+    "type": "slider",
+    "value": 11,
+    "max": 20,
+    "min": 0,
+    "steps": 1,
+    "group": "Container Colors"
+  },
+  "avatarSize": {
+    "label": "Avatar Size (px)",
+    "type": "slider",
+    "value": 160,
+    "max": 300,
+    "min": 60,
+    "steps": 10,
+    "group": "Avatar/Circle"
+  },
+  "avatarRingWidth": {
+    "label": "Ring Width (px)",
+    "type": "slider",
+    "value": 19,
+    "max": 30,
+    "min": 2,
+    "steps": 1,
+    "group": "Avatar/Circle"
+  },
+  "avatarShape": {
+    "label": "Avatar Shape",
+    "type": "dropdown",
+    "options": {
+      "circle": "Circle (Default)",
+      "rounded-square": "Rounded Square",
+      "square": "Square",
+      "hexagon": "Hexagon"
+    },
+    "value": "circle",
+    "group": "Avatar/Circle"
+  },
+  "circleGradient1": {
+    "label": "Ring Color 1",
+    "type": "colorpicker",
+    "value": "#CCB119",
+    "group": "Avatar/Circle"
+  },
+  "circleGradient2": {
+    "label": "Ring Color 2",
+    "type": "colorpicker",
+    "value": "#FFFFFF",
+    "group": "Avatar/Circle"
+  },
+  "circleGradient3": {
+    "label": "Ring Color 3",
+    "type": "colorpicker",
+    "value": "#AD952E",
+    "group": "Avatar/Circle"
+  },
+  "avatarBorderColor": {
+    "label": "Avatar Border Color",
+    "type": "colorpicker",
+    "value": "#E07F1A",
+    "group": "Avatar/Circle"
+  },
+  "avatarBorderWidth": {
+    "label": "Avatar Border Width (px)",
+    "type": "slider",
+    "value": 8,
+    "max": 10,
+    "min": 0,
+    "steps": 1,
+    "group": "Avatar/Circle"
+  },
+  "rotationSpeed": {
+    "label": "Sway Speed (seconds per cycle)",
+    "type": "slider",
+    "value": 7,
+    "max": 15,
+    "min": 1,
+    "steps": 0.5,
+    "group": "Animation"
+  },
+  "rotationAngle": {
+    "label": "Sway Angle (degrees)",
+    "type": "slider",
+    "value": 25,
+    "max": 45,
+    "min": 0,
+    "steps": 1,
+    "group": "Animation"
+  },
+  "ringSpinSpeed": {
+    "label": "Ring Spin Speed (seconds)",
+    "type": "slider",
+    "value": 16.5,
+    "max": 20,
+    "min": 1,
+    "steps": 0.5,
+    "group": "Animation"
+  },
+  "gradientAnimationSpeed": {
+    "label": "Gradient Animation Speed (seconds)",
+    "type": "slider",
+    "value": 5,
+    "max": 20,
+    "min": 2,
+    "steps": 1,
+    "group": "Animation"
+  },
+  "introDuration": {
+    "label": "Intro Animation Duration (ms)",
+    "type": "slider",
+    "value": 800,
+    "max": 3000,
+    "min": 200,
+    "steps": 100,
+    "group": "Animation"
+  },
+  "introEasing": {
+    "label": "Intro Animation Easing",
+    "type": "dropdown",
+    "options": {
+      "easeOutExpo": "Expo Out (Smooth)",
+      "easeOutElastic": "Elastic Out (Bouncy)",
+      "easeOutBack": "Back Out (Overshoot)",
+      "easeOutCubic": "Cubic Out (Standard)",
+      "linear": "Linear (No easing)"
+    },
+    "value": "easeOutExpo",
+    "group": "Animation"
+  },
+  "enableSway": {
+    "label": "Enable Sway Animation",
+    "type": "dropdown",
+    "options": {
+      "true": "Enabled",
+      "false": "Disabled"
+    },
+    "value": "true",
+    "group": "Animation"
+  },
+  "enableRingSpin": {
+    "label": "Enable Ring Spin Animation",
+    "type": "dropdown",
+    "options": {
+      "true": "Enabled",
+      "false": "Disabled"
+    },
+    "value": "true",
+    "group": "Animation"
+  },
+  "enableGradientAnimation": {
+    "label": "Enable Gradient Animation",
+    "type": "dropdown",
+    "options": {
+      "true": "Enabled",
+      "false": "Disabled"
+    },
+    "value": "true",
+    "group": "Animation"
+  },
+  "fontChoice": {
+    "label": "Font Family",
+    "type": "fontpicker",
+    "value": "Ubuntu",
+    "group": "Typography"
+  },
+  "textScale": {
+    "label": "Text Scale Multiplier",
+    "type": "slider",
+    "value": 1.1,
+    "max": 2,
+    "min": 0.5,
+    "steps": 0.05,
+    "group": "Typography"
+  },
+  "textColorMain": {
+    "label": "Primary Text Color",
+    "type": "colorpicker",
+    "value": "#FFFFFF",
+    "group": "Typography"
+  },
+  "textColorMeta": {
+    "label": "Secondary Text Color (Tier/Months)",
+    "type": "colorpicker",
+    "value": "#f4d8ff",
+    "group": "Typography"
+  },
+  "textShadowColor": {
+    "label": "Text Shadow Color",
+    "type": "colorpicker",
+    "value": "#000000",
+    "group": "Typography"
+  },
+  "textShadowBlur": {
+    "label": "Text Shadow Blur (px)",
+    "type": "slider",
+    "value": 4,
+    "max": 30,
+    "min": 0,
+    "steps": 1,
+    "group": "Typography"
+  },
+  "textCase": {
+    "label": "Text Transform",
+    "type": "dropdown",
+    "options": {
+      "none": "Normal",
+      "uppercase": "UPPERCASE",
+      "lowercase": "lowercase",
+      "capitalize": "Capitalize Each Word"
+    },
+    "value": "none",
+    "group": "Typography"
+  },
+  "fontWeightPrimary": {
+    "label": "Primary Text Weight",
+    "type": "dropdown",
+    "options": {
+      "400": "Normal (400)",
+      "500": "Medium (500)",
+      "700": "Bold (700)",
+      "900": "Black (900)"
+    },
+    "value": "900",
+    "group": "Typography"
+  },
+  "fontWeightMeta": {
+    "label": "Secondary Text Weight",
+    "type": "dropdown",
+    "options": {
+      "400": "Normal (400)",
+      "500": "Medium (500)",
+      "700": "Bold (700)",
+      "900": "Black (900)"
+    },
+    "value": "700",
+    "group": "Typography"
+  },
+  "letterSpacing": {
+    "label": "Letter Spacing (em)",
+    "type": "slider",
+    "value": -0.04,
+    "max": 0.2,
+    "min": -0.05,
+    "steps": 0.01,
+    "group": "Typography"
+  },
+  "messageTemplate": {
+    "label": "Message Template",
+    "type": "textfield",
+    "value": "Beförderung zum Captain!",
+    "group": "Content"
+  },
+  "tierPrefix": {
+    "label": "Tier Label Prefix",
+    "type": "textfield",
+    "value": "Tier",
+    "group": "Content"
+  },
+  "monthsSuffix": {
+    "label": "Months Label Suffix",
+    "type": "textfield",
+    "value": "Months",
+    "group": "Content"
+  },
+  "metaSeparator": {
+    "label": "Meta Separator Character",
+    "type": "textfield",
+    "value": "•",
+    "group": "Content"
+  },
+  "dropShadowEnabled": {
+    "label": "Enable Drop Shadow",
+    "type": "dropdown",
+    "options": {
+      "true": "Enabled",
+      "false": "Disabled"
+    },
+    "value": "true",
+    "group": "Effects"
+  },
+  "dropShadowOffsetX": {
+    "label": "Shadow Offset X (px)",
+    "type": "slider",
+    "value": 0,
+    "max": 30,
+    "min": -30,
+    "steps": 1,
+    "group": "Effects"
+  },
+  "dropShadowOffsetY": {
+    "label": "Shadow Offset Y (px)",
+    "type": "slider",
+    "value": 18,
+    "max": 50,
+    "min": 0,
+    "steps": 1,
+    "group": "Effects"
+  },
+  "dropShadowBlur": {
+    "label": "Shadow Blur (px)",
+    "type": "slider",
+    "value": 38,
+    "max": 80,
+    "min": 0,
+    "steps": 2,
+    "group": "Effects"
+  },
+  "dropShadowColor": {
+    "label": "Shadow Color",
+    "type": "colorpicker",
+    "value": "#000000",
+    "group": "Effects"
+  },
+  "dropShadowOpacity": {
+    "label": "Shadow Opacity",
+    "type": "slider",
+    "value": 0.55,
+    "max": 1,
+    "min": 0,
+    "steps": 0.05,
+    "group": "Effects"
+  },
+  "glowEnabled": {
+    "label": "Enable Glow Effect",
+    "type": "dropdown",
+    "options": {
+      "true": "Enabled",
+      "false": "Disabled"
+    },
+    "value": "true",
+    "group": "Effects"
+  },
+  "glowColor": {
+    "label": "Glow Color",
+    "type": "colorpicker",
+    "value": "#00D5FF",
+    "group": "Effects"
+  },
+  "glowIntensity": {
+    "label": "Glow Intensity (px)",
+    "type": "slider",
+    "value": 20,
+    "max": 60,
+    "min": 5,
+    "steps": 5,
+    "group": "Effects"
+  },
+  "avatarImage": {
+    "label": "Custom Avatar Image",
+    "type": "image-input",
+    "value": "https://cdn.streamlabs.com/users/855051/library/BongoOfficer%20500x500%20Sync.gif",
+    "group": "Assets"
+  },
+  "alertSound": {
+    "label": "Alert Sound Effect",
+    "type": "sound-input",
+    "value": null,
+    "group": "Assets"
+  },
+  "soundVolume": {
+    "label": "Sound Volume",
+    "type": "slider",
+    "value": 0.8,
+    "max": 1,
+    "min": 0,
+    "steps": 0.1,
+    "group": "Assets"
+  },
+  "layoutDirection": {
+    "label": "Layout Direction",
+    "type": "dropdown",
+    "options": {
+      "row": "Horizontal (Avatar Center)",
+      "row-reverse": "Horizontal (Avatar Left)",
+      "column": "Vertical (Avatar Top)",
+      "column-reverse": "Vertical (Avatar Bottom)"
+    },
+    "value": "row",
+    "group": "Layout"
+  },
+  "contentAlignment": {
+    "label": "Content Alignment",
+    "type": "dropdown",
+    "options": {
+      "center": "Center",
+      "flex-start": "Start",
+      "flex-end": "End",
+      "space-between": "Space Between",
+      "space-around": "Space Around"
+    },
+    "value": "space-between",
+    "group": "Layout"
+  },
+  "avatarPosition": {
+    "label": "Avatar Position",
+    "type": "dropdown",
+    "options": {
+      "center": "Center",
+      "left": "Left Side",
+      "right": "Right Side"
+    },
+    "value": "center",
+    "group": "Layout"
+  },
+  "contentGap": {
+    "label": "Content Gap (px)",
+    "type": "slider",
+    "value": 24,
+    "max": 60,
+    "min": 8,
+    "steps": 4,
+    "group": "Layout"
+  }
+}

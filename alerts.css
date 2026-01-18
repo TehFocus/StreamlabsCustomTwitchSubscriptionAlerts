@@ -1,0 +1,1312 @@
+/* Import Google Fonts - Ubuntu font family with all weights */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+  /* ─────────────────────────────────────────────────────────────────────────────
+     1.1 SHAPE & GEOMETRY VARIABLES
+     Controls the overall geometric shape of the alert container.
+     The alertBoxShape value determines which shape modifier class to apply.
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Shape type: rectangle | rounded-rectangle | pill | square | circle | hexagon | octagon | diamond */
+  --alert-shape: {alertBoxShape};
+  
+  /* Inner padding applied to the shape content area */
+  --shape-padding: {shapePadding}px;
+  
+  /* Aspect ratio constraint: none | square | wide | classic | ultrawide */
+  --aspect-ratio-mode: {maintainAspectRatio};
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     1.2 CONTAINER SIZING VARIABLES
+     Controls the dimensions and scaling behavior of the alert container.
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Base dimensions - user-configurable width and height */
+  --container-width: {containerWidth}px;
+  --container-height: {containerHeight}px;
+  
+  /* Border radius for rounded corners (used by rounded-rectangle and other shapes) */
+  --container-radius-outer: {containerBorderRadius}px;
+  --container-radius-inner: calc({containerBorderRadius}px - {containerOutlineWidth}px);
+  
+  /* Outline/border width for the gradient border effect */
+  --outline-width: {containerOutlineWidth}px;
+  
+  /* Scaling mode: fixed | responsive | fit-content */
+  --scaling-mode: {scalingMode};
+  
+  /* Scale factor limits for responsive scaling */
+  --max-scale: {maxScale};
+  --min-scale: {minScale};
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     1.3 CONTAINER COLOR VARIABLES
+     Gradient colors and opacity settings for the container background.
+     The gradient flows diagonally using 4 color stops.
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Four-color gradient stops */
+  --container-1: {containerGradient1};
+  --container-2: {containerGradient2};
+  --container-3: {containerGradient3};
+  --container-4: {containerGradient4};
+  
+  /* Gradient angle in degrees (0-360) */
+  --gradient-angle: {gradientAngle}deg;
+  
+  /* Overall container opacity (0.1 - 1.0) */
+  --container-opacity: {containerOpacity};
+  
+  /* Background blur effect in pixels (0 = disabled) */
+  --background-blur: {backgroundBlur}px;
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     1.4 AVATAR/CIRCLE VARIABLES
+     Settings for the central avatar image and its animated ring.
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Avatar dimensions */
+  --avatar-size: {avatarSize}px;
+  
+  /* Ring offset determines how far the ring extends beyond the avatar */
+  --avatar-ring-offset: {avatarRingWidth}px;
+  --avatar-ring-width: calc({avatarRingWidth}px * 0.5);
+  
+  /* Avatar shape: circle | rounded-square | square | hexagon */
+  --avatar-shape: {avatarShape};
+  
+  /* Ring gradient colors (conic gradient) */
+  --ring-1: {circleGradient1};
+  --ring-2: {circleGradient2};
+  --ring-3: {circleGradient3};
+  
+  /* Avatar border styling */
+  --avatar-border-color: {avatarBorderColor};
+  --avatar-border-width: {avatarBorderWidth}px;
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     1.5 ANIMATION VARIABLES
+     Timing and motion settings for all animations.
+     Animations can be individually enabled/disabled via toggle variables.
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Sway animation - gentle rotation back and forth */
+  --sway-angle: {rotationAngle}deg;
+  --sway-duration: {rotationSpeed}s;
+  --enable-sway: {enableSway};
+  
+  /* Ring spin animation - continuous rotation of avatar ring */
+  --ring-spin-duration: {ringSpinSpeed}s;
+  --enable-ring-spin: {enableRingSpin};
+  
+  /* Gradient animation - shifting colors on the border */
+  --gradient-duration: {gradientAnimationSpeed}s;
+  --enable-gradient-animation: {enableGradientAnimation};
+  
+  /* Intro animation - entrance effect timing */
+  --intro-duration: {introDuration}ms;
+  --intro-easing: {introEasing};
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     1.6 TYPOGRAPHY VARIABLES
+     Font, size, color, and text styling settings.
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Font family with fallback chain */
+  --font-family: '{fontChoice}', 'Ubuntu', system-ui, -apple-system, sans-serif;
+  
+  /* Global text scale multiplier (0.5 - 2.0) */
+  --text-scale: {textScale};
+  
+  /* Text transform: none | uppercase | lowercase | capitalize */
+  --text-transform: {textCase};
+  
+  /* Text colors */
+  --text-primary: {textColorMain};
+  --text-secondary: {textColorMeta};
+  
+  /* Text shadow styling */
+  --text-shadow-color: {textShadowColor};
+  --text-shadow-blur: {textShadowBlur}px;
+  
+  /* Font weights for different text elements */
+  --font-weight-primary: {fontWeightPrimary};
+  --font-weight-meta: {fontWeightMeta};
+  
+  /* Letter spacing in em units */
+  --letter-spacing: {letterSpacing}em;
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     1.7 EFFECTS & SHADOW VARIABLES
+     Drop shadow and glow effect settings.
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Drop shadow toggle and settings */
+  --drop-shadow-enabled: {dropShadowEnabled};
+  --drop-shadow-x: {dropShadowOffsetX}px;
+  --drop-shadow-y: {dropShadowOffsetY}px;
+  --drop-shadow-blur: {dropShadowBlur}px;
+  --drop-shadow-color: {dropShadowColor};
+  --drop-shadow-opacity: {dropShadowOpacity};
+  
+  /* Glow effect toggle and settings */
+  --glow-enabled: {glowEnabled};
+  --glow-color: {glowColor};
+  --glow-intensity: {glowIntensity}px;
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     1.8 LAYOUT VARIABLES
+     Flexbox layout direction and alignment settings.
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Layout direction: row | row-reverse | column | column-reverse */
+  --layout-direction: {layoutDirection};
+  
+  /* Content alignment: center | flex-start | flex-end | space-between | space-around */
+  --content-alignment: {contentAlignment};
+  
+  /* Avatar position: center | left | right */
+  --avatar-position: {avatarPosition};
+  
+  /* Gap between content elements */
+  --content-gap: {contentGap}px;
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     1.9 STATIC DESIGN TOKENS
+     Non-customizable values used internally by the design system.
+     These provide consistent spacing, sizing, and effects throughout.
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Line height for tight text */
+  --line-height-tight: 1.05;
+
+  /* Fluid Typography Sizes - scale with --text-scale */
+  --font-size-sm: calc(14px * var(--text-scale));
+  --font-size-md: calc(18px * var(--text-scale));
+  --font-size-lg: calc(24px * var(--text-scale));
+  --font-size-xl: calc(32px * var(--text-scale));
+  --font-size-xxl: calc(40px * var(--text-scale));
+
+  /* Effect Colors - semi-transparent overlays */
+  --glow: rgba(255, 255, 255, 0.18);
+  --shadow-color: rgba(0, 0, 0, 0.25);
+  --overlay-light: rgba(255, 255, 255, 0.09);
+  --overlay-dark: rgba(0, 0, 0, 0.15);
+
+  /* Spacing Scale - consistent spacing throughout */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  
+  /* Content padding - uses custom value with fallback */
+  --content-padding: var(--shape-padding);
+
+  /* Shadow Presets - for various elevation levels */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 12px 26px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 14px rgba(0, 0, 0, 0.35);
+
+  /* Z-Index Scale - layering system */
+  --z-base: 0;
+  --z-content: 1;
+  --z-overlay: 2;
+  --z-ring: 3;
+  --z-avatar: 4;
+  
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPUTED VALUES
+     These are calculated from user inputs for internal use.
+     ───────────────────────────────────────────────────────────────────────────── */
+  
+  /* Computed drop shadow (combines all shadow properties) */
+  --computed-drop-shadow: 
+    var(--drop-shadow-x) 
+    var(--drop-shadow-y) 
+    var(--drop-shadow-blur) 
+    var(--drop-shadow-color);
+    
+  /* Computed glow shadow */
+  --computed-glow: 0 0 var(--glow-intensity) var(--glow-color);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════════
+   2. BASE & RESET STYLES
+   ════════════════════════════════════════════════════════════════════════════════
+   
+   Modern CSS reset with sensible defaults.
+   Ensures consistent rendering across different browsers and platforms.
+   ════════════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Universal Box Sizing
+ * Use border-box for predictable sizing calculations.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Root Element Styles
+ * Sets up the base document with transparent background for OBS/Streamlabs overlay.
+ */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-family);
+  background: transparent;
+  overflow: hidden;
+  
+  /* Improved text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/**
+ * Image Reset
+ * Prevents images from breaking layout.
+ */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Figure Reset
+ * Removes default margins from figure elements.
+ */
+figure {
+  margin: 0;
+}
+
+/**
+ * Screen Reader Only Utility
+ * Visually hides content while keeping it accessible to screen readers.
+ * Use for accessibility announcements and labels.
+ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════════
+   3. LAYOUT COMPONENTS
+   ════════════════════════════════════════════════════════════════════════════════
+   
+   Core structural components that define the alert box layout.
+   Uses CSS Grid and Flexbox for robust, responsive layouts.
+   ════════════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   3.1 ALERT CONTAINER (Main Stage)
+   The root container that handles viewport centering.
+   Uses CSS Grid for bulletproof centering that works with rotations.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-container {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: var(--space-lg);
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   3.2 ALERT FRAME (Animated Wrapper)
+   The animated frame with gradient outline effect.
+   Contains sway animation and serves as the main visual container.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-frame {
+  position: relative;
+  
+  /* Dimensions from customFields.json with viewport constraint */
+  width: min(94vw, var(--container-width));
+  height: var(--container-height);
+  
+  /* Default border radius - may be overridden by shape modifiers */
+  border-radius: var(--container-radius-outer);
+  
+  /* Transform origin for rotation animations */
+  transform-origin: center center;
+  
+  /* Performance optimization for animations */
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  
+  /* Container opacity from customFields.json */
+  opacity: var(--container-opacity);
+  
+  /* Background blur effect (glassmorphism) */
+  backdrop-filter: blur(var(--background-blur));
+  -webkit-backdrop-filter: blur(var(--background-blur));
+  
+  /* 
+   * Drop Shadow Effect
+   * Applied via filter for better performance with animations.
+   * The shadow is configured through customFields.json.
+   */
+  filter: drop-shadow(var(--computed-drop-shadow));
+  
+  /* 
+   * Sway Animation
+   * Gentle rotation back and forth.
+   * Can be disabled via enableSway in customFields.json.
+   * Animation is applied by default, JS will disable if needed.
+   */
+  animation: sway var(--sway-duration) ease-in-out infinite alternate;
+}
+
+/**
+ * Glow Effect Modifier
+ * Applied via JavaScript when glowEnabled is true.
+ * Adds a colored glow around the alert frame.
+ */
+.alert-frame--glow {
+  filter: 
+    drop-shadow(var(--computed-drop-shadow))
+    drop-shadow(var(--computed-glow));
+}
+
+/**
+ * No Sway Modifier
+ * Applied via JavaScript when enableSway is false.
+ */
+.alert-frame--no-sway {
+  animation: none;
+}
+
+/**
+ * Gradient Outline (Pseudo-element)
+ * Creates an animated gradient border using the mask technique.
+ * The border appears as a colored outline around the content.
+ */
+.alert-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--outline-width);
+  
+  /* 
+   * Animated Gradient Border
+   * Uses four colors that shift position over time.
+   * The gradient angle is configurable.
+   */
+  background: linear-gradient(
+    var(--gradient-angle),
+    var(--container-1),
+    var(--container-2),
+    var(--container-3),
+    var(--container-4),
+    var(--container-1)
+  );
+  background-size: 300% 300%;
+  
+  /* Gradient animation - can be disabled via customFields.json */
+  animation: gradient-shift var(--gradient-duration) ease-in-out infinite;
+  
+  /* 
+   * Mask Technique for Outline Effect
+   * Creates a hollow rectangle by masking out the center.
+   * This leaves only the border visible.
+   */
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  
+  z-index: var(--z-base);
+}
+
+/**
+ * No Gradient Animation Modifier
+ * Applied via JavaScript when enableGradientAnimation is false.
+ */
+.alert-frame--no-gradient-animation::before {
+  animation: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   3.3 ALERT CONTENT (Inner Content Area)
+   The inner content container with the solid gradient background.
+   Uses Flexbox for flexible content arrangement.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-content {
+  position: absolute;
+  
+  /* Inset creates space for the outline border */
+  inset: calc(var(--outline-width) + 2px);
+  
+  /* Inner border radius (slightly smaller than outer) */
+  border-radius: var(--container-radius-inner);
+  
+  /* 
+   * Gradient Fill Background
+   * Solid gradient using the same colors as the border.
+   */
+  background: linear-gradient(
+    var(--gradient-angle),
+    var(--container-1) 0%,
+    var(--container-2) 35%,
+    var(--container-3) 65%,
+    var(--container-4) 100%
+  );
+  
+  /* Inner glow for depth */
+  box-shadow: inset 0 0 0 2px var(--glow);
+  
+  /* 
+   * Flexbox Layout
+   * Direction and alignment controlled via customFields.json.
+   */
+  display: flex;
+  flex-direction: var(--layout-direction);
+  align-items: center;
+  justify-content: var(--content-alignment);
+  gap: var(--content-gap);
+  padding: var(--content-padding);
+  
+  /* Prevent content overflow */
+  overflow: hidden;
+  
+  /* Create stacking context for overlays */
+  isolation: isolate;
+  z-index: var(--z-content);
+}
+
+/**
+ * Decorative Light Overlay
+ * Adds subtle highlight effects for visual depth.
+ * Creates a "3D" appearance with light reflections.
+ */
+.alert-content::after {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  background: 
+    radial-gradient(circle at 25% 25%, var(--overlay-light), transparent 45%),
+    radial-gradient(circle at 75% 80%, rgba(255, 255, 255, 0.07), transparent 55%);
+  pointer-events: none;
+  z-index: var(--z-overlay);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   3.4 TEXT ZONES (Left/Right Content Areas)
+   Containers for text content on either side of the avatar.
+   Flex items that grow/shrink based on available space.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-zone {
+  flex: 1 1 35%;
+  min-width: 0; /* Prevent flex overflow - allows text truncation */
+  position: relative;
+  z-index: var(--z-ring);
+}
+
+/**
+ * Left Zone - Message display
+ * Left-aligned text for the primary message.
+ */
+.alert-zone--left {
+  text-align: left;
+}
+
+/**
+ * Right Zone - User info display
+ * Right-aligned text for subscriber name and meta info.
+ */
+.alert-zone--right {
+  text-align: right;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════════
+   4. GEOMETRIC SHAPE SYSTEM
+   ════════════════════════════════════════════════════════════════════════════════
+   
+   Shape modifiers that change the overall geometry of the alert container.
+   Each shape uses CSS clip-path or border-radius to achieve the effect.
+   
+   Shapes are applied via data attributes set by JavaScript based on 
+   the alertBoxShape value in customFields.json.
+   
+   Available shapes:
+   - rectangle: Sharp corners, standard rectangular shape
+   - rounded-rectangle: Rounded corners using border-radius
+   - pill: Maximum border-radius for a capsule/pill shape
+   - square: Equal width and height, forced 1:1 aspect ratio
+   - circle: Perfect circle using clip-path
+   - hexagon: Six-sided polygon
+   - octagon: Eight-sided polygon
+   - diamond: Rotated square (45° rhombus)
+   ════════════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   4.1 RECTANGLE SHAPE
+   Standard rectangular shape with sharp corners.
+   This is the most basic shape with no border-radius.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-frame[data-shape="rectangle"],
+.alert-frame[data-shape="rectangle"]::before,
+.alert-frame[data-shape="rectangle"] .alert-content {
+  border-radius: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   4.2 ROUNDED RECTANGLE SHAPE
+   Uses the user-defined border-radius from customFields.json.
+   This is the default shape that preserves the original design.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-frame[data-shape="rounded-rectangle"] {
+  border-radius: var(--container-radius-outer);
+}
+
+.alert-frame[data-shape="rounded-rectangle"]::before {
+  border-radius: var(--container-radius-outer);
+}
+
+.alert-frame[data-shape="rounded-rectangle"] .alert-content {
+  border-radius: var(--container-radius-inner);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   4.3 PILL/CAPSULE SHAPE
+   Maximum border-radius creates a pill or capsule shape.
+   The shorter dimension determines the curve radius.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-frame[data-shape="pill"],
+.alert-frame[data-shape="pill"]::before {
+  border-radius: 9999px;
+}
+
+.alert-frame[data-shape="pill"] .alert-content {
+  border-radius: 9999px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   4.4 SQUARE SHAPE
+   Forces a 1:1 aspect ratio, creating a perfect square.
+   Uses the width as the base dimension.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-frame[data-shape="square"] {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  max-height: 90vh;
+}
+
+.alert-frame[data-shape="square"],
+.alert-frame[data-shape="square"]::before,
+.alert-frame[data-shape="square"] .alert-content {
+  border-radius: var(--container-radius-outer);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   4.5 CIRCLE SHAPE
+   Creates a perfect circle using 50% border-radius.
+   Forces a 1:1 aspect ratio for circular shape.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-frame[data-shape="circle"] {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  max-height: 90vh;
+}
+
+.alert-frame[data-shape="circle"],
+.alert-frame[data-shape="circle"]::before,
+.alert-frame[data-shape="circle"] .alert-content {
+  border-radius: 50%;
+}
+
+/* Adjust content layout for circle - center everything */
+.alert-frame[data-shape="circle"] .alert-content {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.alert-frame[data-shape="circle"] .alert-zone {
+  text-align: center;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   4.6 HEXAGON SHAPE
+   Six-sided polygon using CSS clip-path.
+   Creates a honeycomb-like appearance.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-frame[data-shape="hexagon"] {
+  clip-path: polygon(
+    25% 0%,    /* Top left */
+    75% 0%,    /* Top right */
+    100% 50%,  /* Right middle */
+    75% 100%,  /* Bottom right */
+    25% 100%,  /* Bottom left */
+    0% 50%     /* Left middle */
+  );
+  border-radius: 0;
+}
+
+.alert-frame[data-shape="hexagon"]::before {
+  clip-path: polygon(
+    25% 0%,
+    75% 0%,
+    100% 50%,
+    75% 100%,
+    25% 100%,
+    0% 50%
+  );
+  border-radius: 0;
+}
+
+.alert-frame[data-shape="hexagon"] .alert-content {
+  clip-path: polygon(
+    25% 0%,
+    75% 0%,
+    100% 50%,
+    75% 100%,
+    25% 100%,
+    0% 50%
+  );
+  border-radius: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   4.7 OCTAGON SHAPE
+   Eight-sided polygon using CSS clip-path.
+   Creates a stop-sign like appearance.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-frame[data-shape="octagon"] {
+  clip-path: polygon(
+    30% 0%,    /* Top left edge */
+    70% 0%,    /* Top right edge */
+    100% 30%,  /* Right top edge */
+    100% 70%,  /* Right bottom edge */
+    70% 100%,  /* Bottom right edge */
+    30% 100%,  /* Bottom left edge */
+    0% 70%,    /* Left bottom edge */
+    0% 30%     /* Left top edge */
+  );
+  border-radius: 0;
+}
+
+.alert-frame[data-shape="octagon"]::before {
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+  border-radius: 0;
+}
+
+.alert-frame[data-shape="octagon"] .alert-content {
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+  border-radius: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   4.8 DIAMOND SHAPE
+   Rotated square (45° rhombus) using clip-path.
+   Creates a dynamic, eye-catching shape.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-frame[data-shape="diamond"] {
+  clip-path: polygon(
+    50% 0%,    /* Top point */
+    100% 50%,  /* Right point */
+    50% 100%,  /* Bottom point */
+    0% 50%     /* Left point */
+  );
+  border-radius: 0;
+}
+
+.alert-frame[data-shape="diamond"]::before {
+  clip-path: polygon(
+    50% 0%,
+    100% 50%,
+    50% 100%,
+    0% 50%
+  );
+  border-radius: 0;
+}
+
+.alert-frame[data-shape="diamond"] .alert-content {
+  clip-path: polygon(
+    50% 0%,
+    100% 50%,
+    50% 100%,
+    0% 50%
+  );
+  border-radius: 0;
+  
+  /* Adjust content layout for diamond - center everything */
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--content-padding) * 2);
+}
+
+.alert-frame[data-shape="diamond"] .alert-zone {
+  text-align: center;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ASPECT RATIO MODIFIERS
+   Applied based on maintainAspectRatio setting in customFields.json.
+   These override the default width/height to enforce specific ratios.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* 1:1 Square aspect ratio */
+.alert-frame[data-aspect="square"] {
+  aspect-ratio: 1 / 1;
+  height: auto;
+}
+
+/* 16:9 Widescreen aspect ratio */
+.alert-frame[data-aspect="wide"] {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+/* 4:3 Classic aspect ratio */
+.alert-frame[data-aspect="classic"] {
+  aspect-ratio: 4 / 3;
+  height: auto;
+}
+
+/* 21:9 Ultrawide aspect ratio */
+.alert-frame[data-aspect="ultrawide"] {
+  aspect-ratio: 21 / 9;
+  height: auto;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════════
+   5. TYPOGRAPHY SYSTEM
+   ════════════════════════════════════════════════════════════════════════════════
+   
+   Text styling for all alert content.
+   Uses CSS custom properties for full customization via customFields.json.
+   
+   Typography hierarchy:
+   - Primary: Main message text (largest)
+   - Name: Subscriber name (second largest)
+   - Meta: Tier and months information (smallest)
+   ════════════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Base Text Styles
+ * Applied to all text elements within the alert.
+ * Provides the foundation for the typography system.
+ */
+.alert-text {
+  /* Font settings from customFields.json */
+  font-family: var(--font-family);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing);
+  
+  /* Text color and transform */
+  color: var(--text-primary);
+  text-transform: var(--text-transform);
+  
+  /* Text shadow for readability and depth */
+  text-shadow: 0 4px var(--text-shadow-blur) var(--text-shadow-color);
+  
+  /* Prevent text overflow - allows long names to wrap */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/**
+ * Primary Text (Message)
+ * The main message displayed on the left side.
+ * Uses the primary font weight (typically black/900).
+ */
+.alert-text--primary {
+  font-size: calc(var(--font-size-xl) * var(--text-scale));
+  font-weight: var(--font-weight-primary);
+}
+
+/**
+ * Name Text
+ * The subscriber's username displayed prominently.
+ * Larger than other text to draw attention.
+ */
+.alert-text--name {
+  font-size: calc(var(--font-size-xxl) * var(--text-scale));
+  font-weight: var(--font-weight-primary);
+  margin-bottom: var(--space-xs);
+}
+
+/**
+ * Meta Text (Tier, Months)
+ * Secondary information like subscription tier and months.
+ * Smaller and uses the secondary color for visual hierarchy.
+ */
+.alert-text--meta {
+  font-size: calc(var(--font-size-md) * var(--text-scale));
+  font-weight: var(--font-weight-meta);
+  color: var(--text-secondary);
+  letter-spacing: calc(var(--letter-spacing) + 0.01em);
+}
+
+/**
+ * Meta Item
+ * Individual items within the meta text (tier label, months count).
+ */
+.alert-meta-item {
+  display: inline;
+}
+
+/**
+ * Meta Separator
+ * Visual separator between meta items (bullet point or custom character).
+ */
+.alert-meta-separator {
+  display: inline-block;
+  margin: 0 var(--space-sm);
+  opacity: 0.8;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════════
+   6. AVATAR/IMAGE COMPONENTS
+   ════════════════════════════════════════════════════════════════════════════════
+   
+   The avatar section includes:
+   - Wrapper: Positions and sizes the avatar area
+   - Ring: Animated gradient ring around the avatar
+   - Figure: Container for the actual image
+   - Image: The avatar image itself
+   
+   Avatar shapes can be customized via avatarShape in customFields.json.
+   ════════════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   6.1 AVATAR WRAPPER
+   Container that holds the avatar ring and image.
+   Provides explicit sizing from customFields.json.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-avatar-wrapper {
+  position: relative;
+  flex: 0 0 auto;
+  z-index: var(--z-ring);
+  
+  /* Explicit sizing from customFields.json */
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  min-width: var(--avatar-size);
+  min-height: var(--avatar-size);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   6.2 AVATAR RING
+   Animated gradient ring that surrounds the avatar.
+   Uses a conic gradient with three colors that rotate continuously.
+   ───────────────────────────────────────────────────────────────────────────── */
+.alert-avatar-ring {
+  position: absolute;
+  
+  /* Ring extends beyond the avatar by the ring offset amount */
+  inset: calc(var(--avatar-ring-offset) * -1);
+  
+  /* Default circular shape */
+  border-radius: 50%;
+  
+  /* 
+   * Conic Gradient
+   * Creates a smooth color transition around the ring.
+   * Three colors from customFields.json blend together.
+   */
+  background: conic-gradient(
+    from 120deg,
+    var(--ring-1),
+    var(--ring-2),
+    var(--ring-3),
+    var(--ring-1)
+  );
+  
+  /* 
+   * Spin Animation
+   * Continuous rotation for a dynamic effect.
+   * Can be disabled via enableRingSpin in customFields.json.
+   */
+  animation: ring-spin var(--ring-spin-duration) linear infinite;
+  
+  /* Glow effect for added depth */
+  filter: drop-shadow(var(--shadow-glow));
+  
+  z-index: var(--z-base);
+}
+
+/**
+ * No Ring Spin Modifier
+ * Applied via JavaScript when enableRingSpin is false.
+ */
+.alert-avatar-ring--no-spin {
+  animation: none;
+}
+
+/**
+ * Avatar Figure
+ * Container for the actual image with styling.
+ * Provides the background and shadow for the avatar area.
+ */
+.alert-avatar-figure {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  
+  /* Default circular shape */
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: var(--z-avatar);
+  
+  /* 
+   * Inner Styling
+   * Gradient background as fallback when image is loading.
+   * Light reflection effect for 3D appearance.
+   */
+  background: 
+    radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.18), transparent 45%),
+    radial-gradient(circle at 60% 70%, var(--overlay-dark), transparent 60%),
+    #0c031d;
+  
+  /* Shadow and border from customFields.json */
+  box-shadow: 
+    var(--shadow-md),
+    0 0 0 var(--avatar-border-width) var(--avatar-border-color);
+}
+
+/**
+ * Avatar Image
+ * The actual image element displaying the avatar.
+ */
+.alert-avatar-image {
+  width: 100%;
+  height: 100%;
+  
+  /* Default circular shape */
+  border-radius: 50%;
+  object-fit: cover;
+  
+  /* Image shadow for depth */
+  box-shadow: 
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 var(--avatar-border-width) rgba(255, 255, 255, 0.6);
+  
+  /* Smooth image transitions for loading effects */
+  transition: opacity 300ms ease;
+}
+
+/**
+ * Light Overlay on Avatar
+ * Adds a subtle highlight for 3D effect.
+ */
+.alert-avatar-figure::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 65%);
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   6.3 AVATAR SHAPE VARIANTS
+   Different shapes for the avatar, controlled via avatarShape in customFields.json.
+   Applied using data attributes set by JavaScript.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/**
+ * Circle Shape (Default)
+ * Standard circular avatar - the default for most use cases.
+ */
+.alert-avatar-wrapper[data-avatar-shape="circle"] .alert-avatar-ring,
+.alert-avatar-wrapper[data-avatar-shape="circle"] .alert-avatar-figure,
+.alert-avatar-wrapper[data-avatar-shape="circle"] .alert-avatar-image {
+  border-radius: 50%;
+}
+
+/**
+ * Rounded Square Shape
+ * Softer corners on a square avatar for a modern look.
+ */
+.alert-avatar-wrapper[data-avatar-shape="rounded-square"] .alert-avatar-ring,
+.alert-avatar-wrapper[data-avatar-shape="rounded-square"] .alert-avatar-figure,
+.alert-avatar-wrapper[data-avatar-shape="rounded-square"] .alert-avatar-image {
+  border-radius: 20%;
+}
+
+/**
+ * Square Shape
+ * Sharp-cornered square avatar for a bold appearance.
+ */
+.alert-avatar-wrapper[data-avatar-shape="square"] .alert-avatar-ring,
+.alert-avatar-wrapper[data-avatar-shape="square"] .alert-avatar-figure,
+.alert-avatar-wrapper[data-avatar-shape="square"] .alert-avatar-image {
+  border-radius: 0;
+}
+
+/**
+ * Hexagon Shape
+ * Six-sided avatar using clip-path for a unique look.
+ */
+.alert-avatar-wrapper[data-avatar-shape="hexagon"] .alert-avatar-ring {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border-radius: 0;
+}
+
+.alert-avatar-wrapper[data-avatar-shape="hexagon"] .alert-avatar-figure,
+.alert-avatar-wrapper[data-avatar-shape="hexagon"] .alert-avatar-image {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border-radius: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════════
+   7. ANIMATIONS
+   ════════════════════════════════════════════════════════════════════════════════
+   
+   All keyframe animations used by the alert system.
+   Each animation can be enabled/disabled via customFields.json.
+   
+   Animation types:
+   - Sway: Gentle rotation back and forth
+   - Gradient Shift: Moving gradient colors on the border
+   - Ring Spin: Continuous rotation of the avatar ring
+   ════════════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   7.1 SWAY ANIMATION
+   Gentle rotation animation that rocks the alert back and forth.
+   The angle is controlled by --sway-angle from customFields.json.
+   Duration is controlled by --sway-duration.
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes sway {
+  0% {
+    transform: rotate(var(--sway-angle));
+  }
+  100% {
+    transform: rotate(calc(var(--sway-angle) * -1));
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   7.2 GRADIENT SHIFT ANIMATION
+   Animates the background-position of the gradient border.
+   Creates a flowing color effect around the outline.
+   Duration is controlled by --gradient-duration.
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   7.3 RING SPIN ANIMATION
+   Continuous 360° rotation for the avatar ring.
+   Creates a dynamic spinning effect around the avatar.
+   Duration is controlled by --ring-spin-duration.
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes ring-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════════
+   8. UTILITIES & STATES
+   ════════════════════════════════════════════════════════════════════════════════
+   
+   Utility classes and state modifiers for special conditions.
+   Includes accessibility features and user preference respect.
+   ════════════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Reduced Motion Preference
+ * Respects users who prefer reduced motion (accessibility).
+ * Disables all animations when this preference is detected.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .alert-frame,
+  .alert-frame::before,
+  .alert-avatar-ring {
+    animation: none !important;
+  }
+  
+  .alert-avatar-image {
+    transition: none !important;
+  }
+}
+
+/**
+ * High Contrast Mode
+ * Improves visibility for users with high contrast preferences.
+ * Increases text shadow for better readability.
+ */
+@media (prefers-contrast: high) {
+  :root {
+    --text-shadow-color: rgba(0, 0, 0, 0.6);
+    --text-shadow-blur: 4px;
+  }
+  
+  .alert-text {
+    text-shadow: 0 2px var(--text-shadow-blur) var(--text-shadow-color);
+  }
+}
+
+/**
+ * Print Styles
+ * Removes animations and optimizes for print output.
+ */
+@media print {
+  .alert-frame {
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  
+  .alert-frame::before,
+  .alert-avatar-ring {
+    animation: none !important;
+  }
+}
+
+/**
+ * Hidden State
+ * Utility class to hide elements (used by JavaScript).
+ */
+.hidden {
+  display: none !important;
+}
+
+/**
+ * Invisible State
+ * Makes element invisible but maintains layout space.
+ */
+.invisible {
+  visibility: hidden;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════════
+   9. RESPONSIVE ADJUSTMENTS
+   ════════════════════════════════════════════════════════════════════════════════
+   
+   Responsive breakpoints for different viewport sizes.
+   Container and avatar sizes are controlled via customFields.json.
+   These media queries only adjust padding and gaps for optimal fit.
+   ════════════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Small Viewports (Mobile)
+ * Reduces padding and gaps for compact display.
+ * Max-width: 480px
+ */
+@media (max-width: 480px) {
+  :root {
+    --content-padding: var(--space-sm);
+  }
+  
+  .alert-content {
+    gap: var(--space-sm);
+  }
+  
+  /* Stack content vertically on very small screens */
+  .alert-content {
+    flex-direction: column;
+  }
+  
+  .alert-zone--left,
+  .alert-zone--right {
+    text-align: center;
+  }
+}
+
+/**
+ * Medium Viewports (Tablet)
+ * Moderate padding and gaps.
+ * Width range: 481px - 768px
+ */
+@media (min-width: 481px) and (max-width: 768px) {
+  :root {
+    --content-padding: var(--space-md);
+  }
+  
+  .alert-content {
+    gap: var(--space-md);
+  }
+}
+
+/**
+ * Large Viewports (Desktop)
+ * Full padding and gaps as designed.
+ * Min-width: 1024px
+ */
+@media (min-width: 1024px) {
+  :root {
+    --content-padding: var(--space-lg);
+  }
+  
+  .alert-content {
+    gap: var(--content-gap);
+  }
+}
+
+/**
+ * Extra Large Viewports (4K / Ultra-wide)
+ * Additional spacing for very large displays.
+ * Min-width: 1920px
+ */
+@media (min-width: 1920px) {
+  :root {
+    --content-padding: var(--space-xl);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════════
+   END OF STYLESHEET
+   ════════════════════════════════════════════════════════════════════════════════
+   
+   This stylesheet is part of the Twitch Subscription Alert v2.0 widget.
+   All customization is handled through customFields.json.
+   
+   For documentation and support, see README.md.
+   ════════════════════════════════════════════════════════════════════════════════ */

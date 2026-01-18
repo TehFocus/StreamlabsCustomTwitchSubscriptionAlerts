@@ -1,0 +1,119 @@
+<!-- Font import -->
+<link 
+  href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" 
+  rel="stylesheet"
+>
+
+<!-- Animation library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+<!-- 
+  AlertContainer Component
+  Role: Main stage container for centering and viewport management
+-->
+<div 
+  id="alert-container" 
+  class="alert-container"
+  role="region"
+  aria-label="Subscription alert notification"
+  aria-live="polite"
+  aria-atomic="true"
+>
+  <!-- 
+    AlertFrame Component
+    Role: Animated frame with gradient outline and sway motion
+  -->
+  <div 
+    class="alert-frame"
+    role="presentation"
+    data-component="alert-frame"
+  >
+    <!-- 
+      AlertContent Component
+      Role: Inner content container with flexbox layout
+    -->
+    <div 
+      class="alert-content"
+      data-component="alert-content"
+    >
+      <!-- 
+        TextZone: Left Side
+        Role: Message template display
+      -->
+      <div 
+        class="alert-zone alert-zone--left"
+        data-component="text-zone"
+        data-position="left"
+      >
+        <p 
+          id="alert-message" 
+          class="alert-text alert-text--primary"
+          data-text="message"
+        >
+          {messageTemplate}
+        </p>
+      </div>
+
+      <div 
+        class="alert-avatar-wrapper"
+        data-component="image-renderer"
+      >
+        <div 
+          class="alert-avatar-ring"
+          role="presentation"
+          aria-hidden="true"
+        ></div>
+        <figure class="alert-avatar-figure">
+          <img
+            id="alert-avatar"
+            class="alert-avatar-image"
+            src="{avatarImage}"
+            alt="Alert Image"
+            data-image-key="default"
+            data-fallback="https://i.imgur.com/y1kRGQp.gif"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </div>
+
+      <!-- 
+        TextZone: Right Side
+        Role: User info display (name, tier, months)
+      -->
+      <div 
+        class="alert-zone alert-zone--right"
+        data-component="text-zone"
+        data-position="right"
+      >
+        <p 
+          id="alert-user-name" 
+          class="alert-text alert-text--name"
+          data-text="name"
+        >
+          {name}
+        </p>
+        <p 
+          class="alert-text alert-text--meta"
+          data-text="meta"
+        >
+          <span id="alert-tier" class="alert-meta-item" data-text="tier">
+            {tierPrefix}
+          </span>
+          <span class="alert-meta-separator" aria-hidden="true">•</span>
+          <span id="alert-months" class="alert-meta-item" data-text="months">
+            {months} {monthsSuffix}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Screen reader only announcement -->
+<div 
+  id="sr-announcement" 
+  class="sr-only" 
+  role="status" 
+  aria-live="assertive"
+></div>
